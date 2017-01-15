@@ -1,6 +1,16 @@
 <?php
 
 return [
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Handle maintenance mode on heroku
+    |--------------------------------------------------------------------------
+    |
+    | This value is to set maintenance mode of your application. 
+    */
+
+    'maintenance' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -12,7 +22,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Laravel videos tutorial',
 
     /*
     |--------------------------------------------------------------------------

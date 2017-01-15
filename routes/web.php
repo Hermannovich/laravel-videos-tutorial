@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(!config('app.maintenance')){
+        return view('welcome');
+    }else{
+        abort(503);
+    }
 });
