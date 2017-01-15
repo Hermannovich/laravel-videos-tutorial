@@ -15,6 +15,6 @@ Route::get('/', function () {
     if(!config('app.maintenance')){
         return view('welcome');
     }else{
-        throw new MaintenanceModeException('1484512892', null, null);
+        abort(503);
     }
 });
