@@ -1,0 +1,18 @@
+language: php
+php:
+- 5.6
+before_script:
+- cp .env.travis .env
+- mysql -e 'create database homestead_test;'
+- composer self-update
+- composer install --no-interaction
+- php artisan key:generate
+script:
+- vendor/bin/phpunit
+deploy:
+  provider: heroku
+  api_key:
+    secure: Iml6Vn3L7wZ6Gm74BR1fQTMI7048BJVc30Sd8aactmZA+rZlnik8cCzdDuzrATIIlrcbYEf9DaAD0WqIpufT1sFW22m6bi8nlZaAAktenl1FzmpEfhQTQ4rWXjsllC0h/MIR4cUQQZUJFgJyiChCwWhPrFMJAZDZBqrboJ/FsYtRzMTRikcNVWOGYnE0nIYRjOHCAG3wCsuWLA6Au1fRDowIbfBqXOj5qZ3HuDoq0hXWJfzbGGKD+dZskb3M1w6tgSYT0oXkG0zvzkgfz++kmlDto9GSmKJcBJE3GOu4zUZNuZATRGoJRf594vRjrSH+T15B2ooJlOG+rJKjjoSk2qAWaKiu+qv5MOgYXoB8f8eq2H3FMF3xQ5O0HJryUqCrrdDlLvUUw+3KDtCBUqIuoJSfIqFSjLGBezYyHCGcA/Mib0upX3WzYWuUsF0w0EgwcqX7vd9xX1y3xdvQhu/5DyhnFoHwHT6lCcqWRgrE4Xw473Z8TQxxqC0Wvj9ZoVPAGVpLoWL8E7Ze8ev2PZzygxY5cBspQmiwsuoruKLVUKKL3w1p5z1wCzbg1c6vcdHm4HyLF4Mgf8WRWCT8rPArZNMoO5ynhJxN2iLospstz3nD2lafCvaOPQKVbW9qPL/Aux7bcafVEnyIn04c/DAJc3wY8E7QD/eJLS8vKXbiLq8=
+  app: laravel-videos-tutorial
+  on:
+    repo: Hermannovich/laravel-videos-tutorial
